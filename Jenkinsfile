@@ -11,17 +11,17 @@ pipeline {
     }
     stage('Install Dependencies') {
       steps {
-        sh 'npm install'
+        bat 'npm install'
       }
     }
     stage('Build') {
       steps {
-        sh 'npm run build'
+        bat 'npm run build'
       }
     }
     stage('Deploy to Vercel') {
       steps {
-        sh "curl -X POST $VERCEL_HOOK_URL"
+        bat "curl -X POST $VERCEL_HOOK_URL"
       }
     }
   }
